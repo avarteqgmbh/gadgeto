@@ -5,6 +5,7 @@ Collection of ruby code snippets.
 {<img src="https://secure.travis-ci.org/avarteqgmbh/gadgeto.png" />}[http://travis-ci.org/avarteqgmbh/gadgeto]
 
 == Gadgeto::Dslable
+
    class Foo
      include Gadgeto::Dslable
      include Gadgeto::Dslable::Display
@@ -39,6 +40,7 @@ Collection of ruby code snippets.
 == Gadgeto::Email
 
    Gadgeto::Email.valid?("user@example.com") #=> true
+   Gadgeto::Email.valid?("user+name@example.com") #=> true
 
 == Gadgeto::TimeOfDay
 
