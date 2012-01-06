@@ -1,13 +1,13 @@
-= gadgeto
+= Gadgeto
 
-Collection of ruby and javascript code snippets.
+Collection of ruby code snippets.
 
 {<img src="https://secure.travis-ci.org/avarteqgmbh/gadgeto.png" />}[http://travis-ci.org/avarteqgmbh/gadgeto]
 
-== Dslable
+== Gadgeto::Dslable
    class Foo
-     include Dslable
-     include Dslable::Display
+     include Gadgeto::Dslable
+     include Gadgeto::Dslable::Display
 
      dslable_method :item, :key, '*arguments'
 
@@ -21,47 +21,47 @@ Collection of ruby and javascript code snippets.
 
 
    f.draw do
-     item 'Startseite', :baem => :bum do
-       item 'Terms'
-       item 'Impressum'
+     item 'home', :baem => :bum do
+       item 'terms'
+       item 'imprint'
      end
 
-     item 'Praemien' do
-       item 'Kueche' do
-         item 'Toepfe'
+     item 'products' do
+       item 'kitchen' do
+         item 'forks'
        end
      end
    end
 
    f.display :items
+   f.items[0].attributes[:key] #=> "home"
 
-== Email
+== Gadgeto::Email
 
-   Email.valid?("user@example.com") #=> true
+   Gadgeto::Email.valid?("user@example.com") #=> true
 
-== TimeOfDay
+== Gadgeto::TimeOfDay
 
-   t = TimeOfDay.new("08:30") #=> 08:00
+   t = Gadgeto::TimeOfDay.new("08:30") #=> 08:00
    t.hour                     #=> 8
    t.minute                   #=> 30
    t.to_i                     #=> 480
    t.add_minutes(30)          #=> 09:00
 
-   t1.TimeOfDay.new("08:30")  #=> 08:30
-   t2.TimeOfDay.new("09:30")  #=> 09:30
+   t1 = Gadgeto::TimeOfDay.new("08:30")  #=> 08:30
+   t2 = Gadgeto::TimeOfDay.new("09:30")  #=> 09:30
    t1 < t2                    #=> true
    t1 > t2                    #=> false
    t1.minutes_till(t2)        #=> 60
    t1 == t2                   #=> false
 
-== SanitizeFilename (Module)
+== Gadgeto::SanitizeFilename (Module)
 
    obj = Object.new
-   obj.extend(SanitizeFilename)
+   obj.extend(Gadgeto::SanitizeFilename)
    obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
 
 == Copyright
 
 Copyright (c) 2012 Robert Gogolok, Matthias Zirnstein. See LICENSE.txt for
 further details.
-
