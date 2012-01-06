@@ -1,0 +1,32 @@
+= gadgeto
+
+Collection of ruby and javascript code snippets.
+
+{<img src="https://secure.travis-ci.org/avarteqgmbh/gadgeto.png" />}[http://travis-ci.org/avarteqgmbh/gadgeto]
+
+== TimeOfDay
+
+   t = TimeOfDay.new("08:30") #=> 08:00
+   t.hour                     #=> 8
+   t.minute                   #=> 30
+   t.to_i                     #=> 480
+   t.add_minutes(30)          #=> 09:00
+
+   t1.TimeOfDay.new("08:30")  #=> 08:30
+   t2.TimeOfDay.new("09:30")  #=> 09:30
+   t1 < t2                    #=> true
+   t1 > t2                    #=> false
+   t1.minutes_till(t2)        #=> 60
+   t1 == t2                   #=> false
+
+== SanitizeFilename (Module)
+
+   obj = Object.new
+   obj.extend(SanitizeFilename)
+   obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
+
+== Copyright
+
+Copyright (c) 2012 Robert Gogolok, Matthias Zirnstein. See LICENSE.txt for
+further details.
+
