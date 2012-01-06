@@ -1,5 +1,6 @@
 
 module Gadgeto
+  #
   #    class Foo
   #      include Dslable
   #      include Dslable::Display
@@ -17,8 +18,8 @@ module Gadgeto
   #
   #    f.draw do
   #      item 'Startseite', :baem => :bum do
-  #        item 'Terms'
-  #        item 'Impressum'
+  #        item 'terms'
+  #        item 'imprint'
   #      end
   #
   #      item 'Praemien' do
