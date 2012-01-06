@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "gadgeto.gemspec",
     "lib/gadgeto.rb",
     "lib/gadgeto/dslable.rb",
     "lib/gadgeto/email.rb",
