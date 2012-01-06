@@ -35,6 +35,10 @@ Collection of ruby and javascript code snippets.
 
    f.display :items
 
+== Email
+
+   Email.valid?("user@example.com") #=> true
+
 == TimeOfDay
 
    t = TimeOfDay.new("08:30") #=> 08:00
