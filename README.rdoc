@@ -6,6 +6,8 @@ Collection of ruby code snippets.
 
 == Gadgeto::Dslable
 
+   require 'gadgeto/dslable'
+
    class Foo
      include Gadgeto::Dslable
      include Gadgeto::Dslable::Display
@@ -39,25 +41,33 @@ Collection of ruby code snippets.
 
 == Gadgeto::Email
 
-   Gadgeto::Email.valid?("user@example.com") #=> true
+   require 'gadgeto/email'
+
+   Gadgeto::Email.valid?("user@example.com")      #=> true
    Gadgeto::Email.valid?("user+name@example.com") #=> true
 
 == Gadgeto::TimeOfDay
 
-   t = Gadgeto::TimeOfDay.new("08:30") #=> 08:00
-   t.hour                     #=> 8
-   t.minute                   #=> 30
-   t.to_i                     #=> 480
-   t.add_minutes(30)          #=> 09:00
+   require 'gadgeto/time_of_day'
 
-   t1 = Gadgeto::TimeOfDay.new("08:30")  #=> 08:30
-   t2 = Gadgeto::TimeOfDay.new("09:30")  #=> 09:30
-   t1 < t2                    #=> true
-   t1 > t2                    #=> false
-   t1.minutes_till(t2)        #=> 60
-   t1 == t2                   #=> false
+   Gadgeto::TimeOfDay.valid?("09:15")   #=> true
+
+   t = Gadgeto::TimeOfDay.new("08:30")  #=> 08:00
+   t.hour                               #=> 8
+   t.minute                             #=> 30
+   t.to_i                               #=> 480
+   t.add_minutes(30)                    #=> 09:00
+
+   t1 = Gadgeto::TimeOfDay.new("08:30") #=> 08:30
+   t2 = Gadgeto::TimeOfDay.new("09:30") #=> 09:30
+   t1 < t2                              #=> true
+   t1 > t2                              #=> false
+   t1.minutes_till(t2)                  #=> 60
+   t1 == t2                             #=> false
 
 == Gadgeto::SanitizeFilename (Module)
+
+   require 'gadgeto/sanitize_filename'
 
    obj = Object.new
    obj.extend(Gadgeto::SanitizeFilename)
