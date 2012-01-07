@@ -21,7 +21,6 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/avarteqgmbh/gadgeto"
   gem.license = "MIT"
   gem.summary = %Q{collection of useful code snippets}
-  gem.description = %Q{collection of useful code snippets}
   gem.email = "rgogolok@avarteq.de"
   gem.authors = ["Robert Gogolok", "Matthias Zirnstein"]
   # dependencies defined in Gemfile
