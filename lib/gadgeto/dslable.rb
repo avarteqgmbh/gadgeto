@@ -1,5 +1,6 @@
 
 module Gadgeto
+  # == Usage
   #
   #    class Foo
   #      include Dslable
