@@ -69,7 +69,7 @@ For example:
 
    Gadgeto::TimeOfDay.valid?("09:15")   #=> true
 
-   t = Gadgeto::TimeOfDay.new("08:30")  #=> 08:00
+   t = Gadgeto::TimeOfDay.new("08:30")  #=> 08:30
    t.hour                               #=> 8
    t.minute                             #=> 30
    t.to_i                               #=> 480
