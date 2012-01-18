@@ -89,3 +89,7 @@ For example:
    obj = Object.new
    obj.extend(Gadgeto::SanitizeFilename)
    obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
+
+= Contributors
+
+See https://github.com/avarteqgmbh/gadgeto/contributors
