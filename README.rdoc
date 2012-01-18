@@ -2,7 +2,8 @@
 
 Collection of ruby code snippets.
 
-{<img src="https://secure.travis-ci.org/avarteqgmbh/gadgeto.png" />}[http://travis-ci.org/avarteqgmbh/gadgeto]
+== Build Status {<img src="https://secure.travis-ci.org/avarteqgmbh/gadgeto.png" />}[http://travis-ci.org/avarteqgmbh/gadgeto]
+== Dependency Status {<img src="https://gemnasium.com/avarteqgmbh/gadgeto.png" />}[https://gemnasium.com/avarteqgmbh/gadgeto]
 
 = Usage
 
