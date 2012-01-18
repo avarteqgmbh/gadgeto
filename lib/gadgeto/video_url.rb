@@ -1,9 +1,6 @@
 module Gadgeto
   class VideoUrl
 
-    ##################
-    ##  Attributes  ##
-    ##################
     YOUTUBE_REGEXP = /^.*((youtu.be\/)|(v\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/i
     VIMEO_REGEXP = /http:\/\/(www\.)?vimeo.com\/(.*\/)?(\w*#)?(\d+)($|\/)/i
 
@@ -14,14 +11,10 @@ module Gadgeto
 
     attr_accessor :url
 
-    ########################
-    ##  Instance methods  ##
-    ########################
-
-    # Return a new instance of vimeo with the given url
+    # Return a new instance with the given URL
     #
     # === Parameters
-    # <tt>url</tt> - Url of the video
+    # <tt>url</tt> - URL of the video
     def initialize(url)
       @url = url
     end
@@ -43,10 +36,10 @@ module Gadgeto
       end
     end
 
-    # Returns the url for this video embedded
+    # Returns the URL for this video embedded
     #
     # === Parameters
-    # * <tt>options</tt> - Configuration for the embedded url.
+    # * <tt>options</tt> - Configuration for the embedded URL.
     #
     # === Options
     # * <tt>:autoplay</tt> - Autoplay on or off (default on)
@@ -60,31 +53,24 @@ module Gadgeto
       return embeded_template % [self.id, autoplay]
     end
 
-    # Returns if the url is valid
+    # Returns true if the URL is valid
     def valid?
       VideoUrl.valid?(self.url)
     end
-
-    #####################
-    ##  Class methods  ##
-    #####################
 
     # Returns all supported service types as array of symbols
     def self.supported_video_types
       return SUPPORTED_SERVICE_TYPES
     end
 
-    # Returns if the url is valid
+    # Returns true if the URL is valid
     #
     # === Parameters
-    # <tt>url</tt> - Url to validate
+    # <tt>url</tt> - URL to validate
     def self.valid?(url)
-      return url.match(/(#{YOUTUBE_REGEXP})|(#{VIMEO_REGEXP})/)
+      !!url.match(/(#{YOUTUBE_REGEXP})|(#{VIMEO_REGEXP})/)
     end
 
-    #######################
-    ##  private methods  ##
-    #######################
     private
 
     # Set video_id for a given regexp and index of match result
