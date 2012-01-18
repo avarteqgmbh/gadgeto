@@ -89,8 +89,3 @@ For example:
    obj = Object.new
    obj.extend(Gadgeto::SanitizeFilename)
    obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
-
-== Copyright
-
-Copyright (c) 2012 Robert Gogolok, Matthias Zirnstein. See LICENSE.txt for
-further details.
