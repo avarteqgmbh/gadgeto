@@ -91,6 +91,18 @@ For example:
    obj.extend(Gadgeto::SanitizeFilename)
    obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
 
+== Gadgeto::VideoUrl
+
+   require 'gadgeto/video_url'
+
+   Gadgeto::VideoUrl.valid?("http://vimeo.com/11384488") #=> true
+   Gadgeto::VideoUrl.supported_video_types               #=> [:youtube, :vimeo]
+
+   video_url = Gadgeto::VideoUrl.new('http://www.youtube.com/watch?v=0zM3nApSvMg')
+   video_url.valid?  #=> true
+   video_url.service #=> :youtube
+   video_url.id      #=> "0zM3nApSvMg"
+
 = Contributors
 
 See https://github.com/avarteqgmbh/gadgeto/contributors
