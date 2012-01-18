@@ -1,3 +1,7 @@
+# gadgeto 0.1.0, 2012-01-18
+
+ * Gadgeto::VideoUrl
+
 # gadgeto 0.0.1, 2012-01-08
 
  * require 'gadgeto/all'
