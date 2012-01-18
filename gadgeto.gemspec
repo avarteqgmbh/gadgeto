@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gadgeto"
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Robert Gogolok", "Matthias Zirnstein"]
-  s.date = "2012-01-08"
+  s.date = "2012-01-18"
   s.email = "rgogolok@avarteq.de"
   s.extra_rdoc_files = [
     "ChangeLog.markdown",
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
+    ".rspec",
     ".travis.yml",
     "ChangeLog.markdown",
     "Gemfile",
@@ -31,10 +32,12 @@ Gem::Specification.new do |s|
     "lib/gadgeto/email/validators.rb",
     "lib/gadgeto/sanitize_filename.rb",
     "lib/gadgeto/time_of_day.rb",
+    "lib/gadgeto/video_url.rb",
     "spec/lib/gadgeto/dslable_spec.rb",
     "spec/lib/gadgeto/email_spec.rb",
     "spec/lib/gadgeto/sanitize_filename_spec.rb",
     "spec/lib/gadgeto/time_of_day_spec.rb",
+    "spec/lib/gadgeto/video_url_spec.rb",
     "spec/spec_helper.rb",
     "test/helper.rb",
     "test/test_gadgeto.rb"
