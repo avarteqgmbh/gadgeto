@@ -96,9 +96,9 @@ describe Gadgeto::VideoUrl do
       end
     end
 
-    describe '#supported_video_types' do
+    describe '#supported_services' do
       it 'should return the supported service types' do
-        Gadgeto::VideoUrl.supported_video_types.should eq([:youtube, :vimeo])
+        Gadgeto::VideoUrl.supported_services.should eq([:youtube, :vimeo])
       end
     end
   end

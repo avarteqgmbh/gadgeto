@@ -59,8 +59,14 @@ module Gadgeto
     end
 
     # Returns all supported service types as array of symbols
-    def self.supported_video_types
+    def self.supported_services
       return SUPPORTED_SERVICE_TYPES
+    end
+
+    # <b>DEPRECATED:</b> Please use <tt>supported_services</tt> instead.
+    def self.supported_video_types
+      warn "[DEPRECATION] `supported_video_types` is deprecated.  Please use `supported_services` instead."
+      return supported_services
     end
 
     # Returns true if the URL is valid

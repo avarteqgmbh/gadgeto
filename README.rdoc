@@ -96,7 +96,7 @@ For example:
    require 'gadgeto/video_url'
 
    Gadgeto::VideoUrl.valid?("http://vimeo.com/11384488") #=> true
-   Gadgeto::VideoUrl.supported_video_types               #=> [:youtube, :vimeo]
+   Gadgeto::VideoUrl.supported_services                  #=> [:youtube, :vimeo]
 
    video_url = Gadgeto::VideoUrl.new('http://www.youtube.com/watch?v=0zM3nApSvMg')
    video_url.valid?  #=> true
