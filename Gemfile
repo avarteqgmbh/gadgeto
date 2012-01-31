@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 group :development do
-  gem "jeweler", "~> 1.6.4"
+  gem "jeweler", "~> 1.8.3"
 
   gem 'rake', ">= 0.9.2.2"
   gem 'rdoc'
