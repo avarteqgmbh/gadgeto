@@ -5,7 +5,7 @@ require File.join(File.dirname(__FILE__), '../../../../lib/gadgeto/domain/valida
 
 describe Gadgeto::Domain::Validators do
 
-  subject { Gadgeto::Domain::Validators }
+  subject { Class.new.send(:include, Gadgeto::Domain::Validators).new }
 
 
   context "third_level_domain" do
