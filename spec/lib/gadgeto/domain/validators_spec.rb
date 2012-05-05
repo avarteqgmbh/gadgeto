@@ -13,7 +13,7 @@ describe Gadgeto::Domain::Validators do
       subject.third_level_domain?('de').should be_false
       subject.third_level_domain?('test.de').should be_false
       subject.third_level_domain?('test.test.test.de').should be_false
-    end # shouldn't validate other level domains
+    end
 
     it "should be valid on third level domain" do
       subject.third_level_domain?('test.test.de').should be_true
@@ -21,12 +21,12 @@ describe Gadgeto::Domain::Validators do
       subject.third_level_domain?('m.test.de').should be_true
       subject.third_level_domain?('m8.test.de').should be_true
       subject.third_level_domain?('m8.test42.de').should be_true
-    end # should be valid on third level domain
+    end
     
     it "should't be valid on special hyphen cases" do
       subject.third_level_domain?('-t.test.de').should be_false
       subject.third_level_domain?('-.test.de').should be_false
-    end # should be valid on third level domain
-  end # third_level_domain
+    end
+  end
 
 end
