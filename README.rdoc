@@ -103,6 +103,18 @@ For example:
    video_url.service #=> :youtube
    video_url.id      #=> "0zM3nApSvMg"
 
+== Gadgeto::Domain
+
+   require 'gadgeto/domain'
+
+   Gadgeto::Domain.valid?("de")         #=> true
+   Gadgeto::Domain.valid?("test.de")    #=> true
+   Gadgeto::Domain.valid?("-.test.de")  #=> false
+
+   domain = Gadgeto::Domain.new("m.test.de")
+   domain.third_level_domain?           #=> true
+
+
 = Contributors
 
 See https://github.com/avarteqgmbh/gadgeto/contributors
