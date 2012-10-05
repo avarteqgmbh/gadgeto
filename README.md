@@ -76,6 +76,7 @@ end
 f.display :items
 f.items[0].attributes[:key] #=> "home"
 ```
+
 **Gadgeto::Email**
 
 ``` ruby
@@ -83,6 +84,16 @@ require 'gadgeto/email'
 
 Gadgeto::Email.valid?("user@example.com")      #=> true
 Gadgeto::Email.valid?("user+name@example.com") #=> true
+```
+
+**Gadgeto::SanitizeFilename (Module)**
+
+``` ruby
+require 'gadgeto/sanitize_filename'
+
+obj = Object.new
+obj.extend(Gadgeto::SanitizeFilename)
+obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
 ```
 
 **Gadgeto::TimeOfDay**
@@ -104,16 +115,6 @@ t1 < t2                              #=> true
 t1 > t2                              #=> false
 t1.minutes_till(t2)                  #=> 60
 t1 == t2                             #=> false
-```
-
-**Gadgeto::SanitizeFilename (Module)**
-
-``` ruby
-require 'gadgeto/sanitize_filename'
-
-obj = Object.new
-obj.extend(Gadgeto::SanitizeFilename)
-obj.sanitize_filename("foo bar.zip") #=> "foo_bar.zip"
 ```
 
 **Gadgeto::VideoUrl**
