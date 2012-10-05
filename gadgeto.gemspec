@@ -5,16 +5,16 @@
 
 Gem::Specification.new do |s|
   s.name = "gadgeto"
-  s.version = "0.1.1"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Robert Gogolok", "Matthias Zirnstein"]
-  s.date = "2012-01-23"
+  s.date = "2012-10-05"
   s.email = "rgogolok@avarteq.de"
   s.extra_rdoc_files = [
     "ChangeLog.markdown",
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".rspec",
@@ -22,17 +22,21 @@ Gem::Specification.new do |s|
     "ChangeLog.markdown",
     "Gemfile",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
     "gadgeto.gemspec",
     "lib/gadgeto/all.rb",
+    "lib/gadgeto/domain.rb",
+    "lib/gadgeto/domain/validators.rb",
     "lib/gadgeto/dslable.rb",
     "lib/gadgeto/email.rb",
     "lib/gadgeto/email/validators.rb",
     "lib/gadgeto/sanitize_filename.rb",
     "lib/gadgeto/time_of_day.rb",
     "lib/gadgeto/video_url.rb",
+    "spec/lib/gadgeto/domain/validators_spec.rb",
+    "spec/lib/gadgeto/domain_spec.rb",
     "spec/lib/gadgeto/dslable_spec.rb",
     "spec/lib/gadgeto/email_spec.rb",
     "spec/lib/gadgeto/sanitize_filename_spec.rb",
@@ -45,27 +49,27 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/avarteqgmbh/gadgeto"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "collection of useful code snippets"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_development_dependency(%q<rake>, [">= 0.9.2.2"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 2.8.0"])
     else
-      s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_dependency(%q<rake>, [">= 0.9.2.2"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<simplecov>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 2.8.0"])
     end
   else
-    s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
     s.add_dependency(%q<rake>, [">= 0.9.2.2"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<simplecov>, [">= 0"])
