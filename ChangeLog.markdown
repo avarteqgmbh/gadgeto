@@ -1,3 +1,7 @@
+# gadgeto 0.2.0, 2012-10-06
+
+ * Gadgeto::Domain
+
 # gadgeto 0.1.1, 2012-01-23
 
  * deprecate Gadgeto::VideoUrl.supported_video_types,
