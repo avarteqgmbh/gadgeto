@@ -3,6 +3,7 @@ Gadgeto
 
 [![Build Status](https://secure.travis-ci.org/avarteqgmbh/gadgeto.png)](http://travis-ci.org/avarteqgmbh/gadgeto)
 [![Dependency Status](https://gemnasium.com/avarteqgmbh/gadgeto.png)](https://gemnasium.com/avarteqgmbh/gadgeto)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/avarteqgmbh/gadgeto)
 
 Collection of ruby code snippets.
 
