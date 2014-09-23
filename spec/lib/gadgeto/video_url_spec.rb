@@ -81,18 +81,18 @@ describe Gadgeto::VideoUrl do
     describe '#valid?' do
       it 'should return true for a valid youtube url' do
         YOUTUBE_LINKS.each do |youtube_url|
-          Gadgeto::VideoUrl.valid?(youtube_url).should be_true
+          expect(Gadgeto::VideoUrl.valid?(youtube_url)).to be_truthy
         end
       end
 
       it 'should return true for a valid vimeo url' do
         VIMEO_LINKS.each do |vimeo_url|
-          Gadgeto::VideoUrl.valid?(vimeo_url).should be_true
+          expect(Gadgeto::VideoUrl.valid?(vimeo_url)).to be_truthy
         end
       end
 
       it 'should return false for a unsupported url' do
-        Gadgeto::VideoUrl.valid?('http://www.imnotthaaatvalid.de/7777as882128as').should be_false
+        expect(Gadgeto::VideoUrl.valid?('http://www.imnotthaaatvalid.de/7777as882128as')).to be_falsey
       end
     end
 

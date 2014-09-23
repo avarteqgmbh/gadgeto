@@ -10,22 +10,22 @@ describe Gadgeto::Domain::Validators do
 
   context "third_level_domain" do
     it "shouldn't validate other level domains" do
-      subject.third_level_domain?('de').should be_false
-      subject.third_level_domain?('test.de').should be_false
-      subject.third_level_domain?('test.test.test.de').should be_false
+      subject.third_level_domain?('de').should be_falsey
+      subject.third_level_domain?('test.de').should be_falsey
+      subject.third_level_domain?('test.test.test.de').should be_falsey
     end
 
     it "should be valid on third level domain" do
-      subject.third_level_domain?('test.test.de').should be_true
-      subject.third_level_domain?('t-t.test.de').should be_true
-      subject.third_level_domain?('m.test.de').should be_true
-      subject.third_level_domain?('m8.test.de').should be_true
-      subject.third_level_domain?('m8.test42.de').should be_true
+      subject.third_level_domain?('test.test.de').should be_truthy
+      subject.third_level_domain?('t-t.test.de').should be_truthy
+      subject.third_level_domain?('m.test.de').should be_truthy
+      subject.third_level_domain?('m8.test.de').should be_truthy
+      subject.third_level_domain?('m8.test42.de').should be_truthy
     end
-    
+
     it "should't be valid on special hyphen cases" do
-      subject.third_level_domain?('-t.test.de').should be_false
-      subject.third_level_domain?('-.test.de').should be_false
+      subject.third_level_domain?('-t.test.de').should be_falsey
+      subject.third_level_domain?('-.test.de').should be_falsey
     end
   end
 

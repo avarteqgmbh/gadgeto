@@ -14,16 +14,16 @@ describe Gadgeto::Dslable do
     o.extend(Gadgeto::Dslable)
     o_metaclass = class << o; self; end
 
-    o_metaclass.respond_to?(:dslable_method).should be_true
+    o_metaclass.respond_to?(:dslable_method).should be_truthy
   end
 
   it "should define a class method dslable_method if included" do
-    DslableDummy.respond_to?(:dslable_method).should be_true
+    DslableDummy.respond_to?(:dslable_method).should be_truthy
   end
 
   it "should define an instance method draw" do
     o = DslableDummy.new
-    o.respond_to?(:draw).should be_true
+    o.respond_to?(:draw).should be_truthy
   end
 
   context "" do

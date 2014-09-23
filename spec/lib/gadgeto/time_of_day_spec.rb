@@ -64,25 +64,25 @@ describe Gadgeto::TimeOfDay do
 
   describe "self.valid?" do
     it { expect { Gadgeto::TimeOfDay.valid? }.to raise_error }
-    it { Gadgeto::TimeOfDay.valid?("08:07").should be_true }
-    it { Gadgeto::TimeOfDay.valid?("08:70").should be_false }
-    it { Gadgeto::TimeOfDay.valid?("x8:30").should be_false }
+    it { Gadgeto::TimeOfDay.valid?("08:07").should be_truthy }
+    it { Gadgeto::TimeOfDay.valid?("08:70").should be_falsey }
+    it { Gadgeto::TimeOfDay.valid?("x8:30").should be_falsey }
   end
 
   describe "operator <" do
-    it { (Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:01")).should be_true }
-    it { (Gadgeto::TimeOfDay.new("08:01") < Gadgeto::TimeOfDay.new("08:00")).should be_false }
-    it { (Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:00")).should be_false }
+    it { (Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:01")).should be_truthy }
+    it { (Gadgeto::TimeOfDay.new("08:01") < Gadgeto::TimeOfDay.new("08:00")).should be_falsey }
+    it { (Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:00")).should be_falsey }
   end
 
   describe "operator >" do
-    it { (Gadgeto::TimeOfDay.new("08:01") > Gadgeto::TimeOfDay.new("08:00")).should be_true }
-    it { (Gadgeto::TimeOfDay.new("08:00") > Gadgeto::TimeOfDay.new("08:01")).should be_false }
-    it { (Gadgeto::TimeOfDay.new("08:11") > Gadgeto::TimeOfDay.new("08:11")).should be_false }
+    it { (Gadgeto::TimeOfDay.new("08:01") > Gadgeto::TimeOfDay.new("08:00")).should be_truthy }
+    it { (Gadgeto::TimeOfDay.new("08:00") > Gadgeto::TimeOfDay.new("08:01")).should be_falsey }
+    it { (Gadgeto::TimeOfDay.new("08:11") > Gadgeto::TimeOfDay.new("08:11")).should be_falsey }
   end
 
   describe "operator ==" do
-    it { (Gadgeto::TimeOfDay.new("08:13") == Gadgeto::TimeOfDay.new("08:13")).should be_true }
+    it { (Gadgeto::TimeOfDay.new("08:13") == Gadgeto::TimeOfDay.new("08:13")).should be_truthy }
   end
 
   describe "till" do
