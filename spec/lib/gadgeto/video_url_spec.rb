@@ -21,57 +21,57 @@ describe Gadgeto::VideoUrl do
 
     describe '#id' do
       it 'should return the youtube video-id for a youtube video url' do
-        youtube_video_url.id.should eq('0zM3nApSvMg')
+        expect(youtube_video_url.id).to eq('0zM3nApSvMg')
       end
 
       it 'should return the vimeo video-id for a vimeo video url' do
-        vimeo_video_url.id.should eq('11384488')
+        expect(vimeo_video_url.id).to eq('11384488')
       end
     end
 
     describe '#service' do
       it 'should return "youtube" for a youtube video url' do
-        youtube_video_url.service.should eq(:youtube)
+        expect(youtube_video_url.service).to eq(:youtube)
       end
 
       it 'should return "vimeo" for a vimeo video url' do
-        vimeo_video_url.service.should eq(:vimeo)
+        expect(vimeo_video_url.service).to eq(:vimeo)
       end
     end
 
     describe '#embedded' do
       it 'should return the url for embedded video for youtube with autplay true default' do
-        youtube_video_url.embedded.should eq('http://www.youtube.com/embed/0zM3nApSvMg?wmode=transparent&autoplay=1')
+        expect(youtube_video_url.embedded).to eq('http://www.youtube.com/embed/0zM3nApSvMg?wmode=transparent&autoplay=1')
       end
 
       it 'should return the url for embedded video for youtube with autoplay false if set' do
-        youtube_video_url.embedded(:autoplay => false).should eq('http://www.youtube.com/embed/0zM3nApSvMg?wmode=transparent&autoplay=0')
+        expect(youtube_video_url.embedded(:autoplay => false)).to eq('http://www.youtube.com/embed/0zM3nApSvMg?wmode=transparent&autoplay=0')
       end
 
       it 'should return the url for embedded video for vimeo with autoplay true default' do
-        vimeo_video_url.embedded.should eq('http://player.vimeo.com/video/11384488?title=0&amp;byline=0&amp;portrait=0&autoplay=1')
+        expect(vimeo_video_url.embedded).to eq('http://player.vimeo.com/video/11384488?title=0&amp;byline=0&amp;portrait=0&autoplay=1')
       end
 
       it 'should return the url for embedded video for vimeo with autoplay false if set' do
-        vimeo_video_url.embedded(:autoplay => false).should eq('http://player.vimeo.com/video/11384488?title=0&amp;byline=0&amp;portrait=0&autoplay=0')
+        expect(vimeo_video_url.embedded(:autoplay => false)).to eq('http://player.vimeo.com/video/11384488?title=0&amp;byline=0&amp;portrait=0&autoplay=0')
       end
     end
 
     describe '#valid?' do
       it 'should return true for a valid youtube url' do
         YOUTUBE_LINKS.each do |youtube_url|
-          Gadgeto::VideoUrl.new(youtube_url).should be_valid
+          expect(Gadgeto::VideoUrl.new(youtube_url)).to be_valid
         end
       end
 
       it 'should return true for a valid vimeo url' do
         VIMEO_LINKS.each do |vimeo_url|
-          Gadgeto::VideoUrl.new(vimeo_url).should be_valid
+          expect(Gadgeto::VideoUrl.new(vimeo_url)).to be_valid
         end
       end
 
       it 'should return false for a unsupported url' do
-        Gadgeto::VideoUrl.new('http://www.imnotthaaatvalid.de/7777as882128as').should_not be_valid
+        expect(Gadgeto::VideoUrl.new('http://www.imnotthaaatvalid.de/7777as882128as')).not_to be_valid
       end
     end
   end
@@ -98,7 +98,7 @@ describe Gadgeto::VideoUrl do
 
     describe '#supported_services' do
       it 'should return the supported service types' do
-        Gadgeto::VideoUrl.supported_services.should eq([:youtube, :vimeo])
+        expect(Gadgeto::VideoUrl.supported_services).to eq([:youtube, :vimeo])
       end
     end
   end

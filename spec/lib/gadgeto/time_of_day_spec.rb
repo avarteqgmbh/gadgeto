@@ -29,75 +29,74 @@ describe Gadgeto::TimeOfDay do
 
   describe "to_s" do
     it "should return string representation by default" do
-      Gadgeto::TimeOfDay.new("08:30").to_s.should == "08:30"
+      expect(Gadgeto::TimeOfDay.new("08:30").to_s).to eq("08:30")
     end
   end
 
   describe "to_i" do
     context "should return time of day converted in minutes" do
-      it { Gadgeto::TimeOfDay.new("00:00").to_i.should == 0 }
-      it { Gadgeto::TimeOfDay.new("08:00").to_i.should == (8 * 60) }
-      it { Gadgeto::TimeOfDay.new("08:13").to_i.should == (8 * 60 + 13) }
+      it { expect(Gadgeto::TimeOfDay.new("00:00").to_i).to eq(0) }
+      it { expect(Gadgeto::TimeOfDay.new("08:00").to_i).to eq(8 * 60) }
+      it { expect(Gadgeto::TimeOfDay.new("08:13").to_i).to eq(8 * 60 + 13) }
     end
   end
 
   describe "hour" do
-    it { Gadgeto::TimeOfDay.new("08:30").hour.should == 8 }
-    it { Gadgeto::TimeOfDay.new("8:30").hour.should == 8 }
+    it { expect(Gadgeto::TimeOfDay.new("08:30").hour).to eq(8) }
+    it { expect(Gadgeto::TimeOfDay.new("8:30").hour).to eq(8) }
   end
 
   describe "minute" do
-    it { Gadgeto::TimeOfDay.new("08:37").minute.should == 37 }
-    it { Gadgeto::TimeOfDay.new("08:07").minute.should == 7 }
+    it { expect(Gadgeto::TimeOfDay.new("08:37").minute).to eq(37) }
+    it { expect(Gadgeto::TimeOfDay.new("08:07").minute).to eq(7) }
   end
 
   describe "add_minutes" do
-    it { Gadgeto::TimeOfDay.new("08:30").add_minutes(7).to_s.should == "08:37" }
-    it { Gadgeto::TimeOfDay.new("08:59").add_minutes(1).to_s.should == "09:00" }
-    it { Gadgeto::TimeOfDay.new("08:00").add_minutes(135).to_s.should == "10:15" }
+    it { expect(Gadgeto::TimeOfDay.new("08:30").add_minutes(7).to_s).to eq("08:37") }
+    it { expect(Gadgeto::TimeOfDay.new("08:59").add_minutes(1).to_s).to eq("09:00") }
+    it { expect(Gadgeto::TimeOfDay.new("08:00").add_minutes(135).to_s).to eq("10:15") }
 
-    it { Gadgeto::TimeOfDay.new("23:59").add_minutes(1).to_s.should == "00:00" }
-    it { Gadgeto::TimeOfDay.new("23:59").add_minutes(2).to_s.should == "00:01" }
-    it { Gadgeto::TimeOfDay.new("23:59").add_minutes(120).to_s.should == "01:59" }
-
+    it { expect(Gadgeto::TimeOfDay.new("23:59").add_minutes(1).to_s).to eq("00:00") }
+    it { expect(Gadgeto::TimeOfDay.new("23:59").add_minutes(2).to_s).to eq("00:01") }
+    it { expect(Gadgeto::TimeOfDay.new("23:59").add_minutes(120).to_s).to eq("01:59") }
   end
 
   describe "self.valid?" do
     it { expect { Gadgeto::TimeOfDay.valid? }.to raise_error }
-    it { Gadgeto::TimeOfDay.valid?("08:07").should be_truthy }
-    it { Gadgeto::TimeOfDay.valid?("08:70").should be_falsey }
-    it { Gadgeto::TimeOfDay.valid?("x8:30").should be_falsey }
+    it { expect(Gadgeto::TimeOfDay.valid?("08:07")).to be_truthy }
+    it { expect(Gadgeto::TimeOfDay.valid?("08:70")).to be_falsey }
+    it { expect(Gadgeto::TimeOfDay.valid?("x8:30")).to be_falsey }
   end
 
   describe "operator <" do
-    it { (Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:01")).should be_truthy }
-    it { (Gadgeto::TimeOfDay.new("08:01") < Gadgeto::TimeOfDay.new("08:00")).should be_falsey }
-    it { (Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:00")).should be_falsey }
+    it { expect(Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:01")).to be_truthy }
+    it { expect(Gadgeto::TimeOfDay.new("08:01") < Gadgeto::TimeOfDay.new("08:00")).to be_falsey }
+    it { expect(Gadgeto::TimeOfDay.new("08:00") < Gadgeto::TimeOfDay.new("08:00")).to be_falsey }
   end
 
   describe "operator >" do
-    it { (Gadgeto::TimeOfDay.new("08:01") > Gadgeto::TimeOfDay.new("08:00")).should be_truthy }
-    it { (Gadgeto::TimeOfDay.new("08:00") > Gadgeto::TimeOfDay.new("08:01")).should be_falsey }
-    it { (Gadgeto::TimeOfDay.new("08:11") > Gadgeto::TimeOfDay.new("08:11")).should be_falsey }
+    it { expect(Gadgeto::TimeOfDay.new("08:01") > Gadgeto::TimeOfDay.new("08:00")).to be_truthy }
+    it { expect(Gadgeto::TimeOfDay.new("08:00") > Gadgeto::TimeOfDay.new("08:01")).to be_falsey }
+    it { expect(Gadgeto::TimeOfDay.new("08:11") > Gadgeto::TimeOfDay.new("08:11")).to be_falsey }
   end
 
   describe "operator ==" do
-    it { (Gadgeto::TimeOfDay.new("08:13") == Gadgeto::TimeOfDay.new("08:13")).should be_truthy }
+    it { expect(Gadgeto::TimeOfDay.new("08:13") == Gadgeto::TimeOfDay.new("08:13")).to be_truthy }
   end
 
   describe "till" do
 
-    it { Gadgeto::TimeOfDay.new("00:00").minutes_till(Gadgeto::TimeOfDay.new("00:00")).should == 0 }
-    it { Gadgeto::TimeOfDay.new("00:00").minutes_till(Gadgeto::TimeOfDay.new("00:13")).should == 13 }
-    it { Gadgeto::TimeOfDay.new("08:15").minutes_till(Gadgeto::TimeOfDay.new("10:00")).should == 105 }
+    it { expect(Gadgeto::TimeOfDay.new("00:00").minutes_till(Gadgeto::TimeOfDay.new("00:00"))).to eq(0) }
+    it { expect(Gadgeto::TimeOfDay.new("00:00").minutes_till(Gadgeto::TimeOfDay.new("00:13"))).to eq(13) }
+    it { expect(Gadgeto::TimeOfDay.new("08:15").minutes_till(Gadgeto::TimeOfDay.new("10:00"))).to eq(105) }
 
     context "allow overflow" do
-      it { Gadgeto::TimeOfDay.new("23:00").minutes_till(Gadgeto::TimeOfDay.new("01:00")).should == 120 }
+      it { expect(Gadgeto::TimeOfDay.new("23:00").minutes_till(Gadgeto::TimeOfDay.new("01:00"))).to eq(120) }
     end
 
     context "do not allow overflow" do
       it { expect { Gadgeto::TimeOfDay.new("23:00").minutes_till(Gadgeto::TimeOfDay.new("01:00"), :overflow => false)}.to raise_error }
-      it { Gadgeto::TimeOfDay.new("23:00").minutes_till(Gadgeto::TimeOfDay.new("23:15"), :overflow => false).should == 15 }
+      it { expect(Gadgeto::TimeOfDay.new("23:00").minutes_till(Gadgeto::TimeOfDay.new("23:15"), :overflow => false)).to eq(15) }
     end
 
   end

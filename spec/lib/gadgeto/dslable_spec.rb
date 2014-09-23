@@ -14,16 +14,16 @@ describe Gadgeto::Dslable do
     o.extend(Gadgeto::Dslable)
     o_metaclass = class << o; self; end
 
-    o_metaclass.respond_to?(:dslable_method).should be_truthy
+    expect(o_metaclass.respond_to?(:dslable_method)).to be_truthy
   end
 
   it "should define a class method dslable_method if included" do
-    DslableDummy.respond_to?(:dslable_method).should be_truthy
+    expect(DslableDummy.respond_to?(:dslable_method)).to be_truthy
   end
 
   it "should define an instance method draw" do
     o = DslableDummy.new
-    o.respond_to?(:draw).should be_truthy
+    expect(o.respond_to?(:draw)).to be_truthy
   end
 
   context "" do
@@ -45,14 +45,14 @@ describe Gadgeto::Dslable do
       end
     end
 
-    it { o.items.size.should == 2 }
-    it { o.items[0].class.should == DslableDummy }
+    it { expect(o.items.size).to eq(2) }
+    it { expect(o.items[0].class).to eq(DslableDummy) }
 
 
-    it { o.items[0].items[0].items[0].attributes[:args].size.should == 2 }
-    it { o.items[0].items[0].items[0].attributes[:args][1].should == "hello world" }
+    it { expect(o.items[0].items[0].items[0].attributes[:args].size).to eq(2) }
+    it { expect(o.items[0].items[0].items[0].attributes[:args][1]).to eq("hello world") }
 
-    it { o.items[0].items[0].items[1].attributes[:key].should == "item1.1.2" }
+    it { expect(o.items[0].items[0].items[1].attributes[:key]).to eq("item1.1.2") }
  end
 
 end

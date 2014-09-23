@@ -12,16 +12,16 @@ describe Gadgeto::SanitizeFilename do
 
     subject { DummyClass.new }
 
-    it { subject.sanitize_filename('/home/foo/bar').should == 'bar'}
-    it { subject.sanitize_filename('\\bar').should == 'bar'}
+    it { expect(subject.sanitize_filename('/home/foo/bar')).to eq('bar') }
+    it { expect(subject.sanitize_filename('\\bar')).to eq('bar') }
 
     context "stripping" do
-      it { subject.sanitize_filename('foo bar').should == 'foo_bar'}
-      it { subject.sanitize_filename('  foobar  ').should == 'foobar'}
+      it { expect(subject.sanitize_filename('foo bar')).to eq('foo_bar') }
+      it { expect(subject.sanitize_filename('  foobar  ')).to eq('foobar') }
     end
 
     context "remove special characters" do
-      it { subject.sanitize_filename(',bar').should == '_bar'}
+      it { expect(subject.sanitize_filename(',bar')).to eq('_bar') }
     end
 
   end
